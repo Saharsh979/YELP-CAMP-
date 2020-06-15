@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+    <head> <title>Yelp camp</title> 
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">  
+	<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/semantic-ui@2.4.2/dist/semantic.min.css">
+	<link rel="stylesheet" type="text/css" href="/stylesheets/app.css">
+    </head>
+    <body style="  padding:0; height:100%;">
+        
+  	<div class="ui secondary menu" style="display:block;">
+			
+			
+		<div class=" ui inverted menu">
+			<div class="header item"><i class="code icon"></i>YELP CAMP</div>
+				<a href="/" class="active item">Home</a>
+			         <% if(!currentUser){ %>
+          			 <a href="/login" class="item">LOGIN</a>
+          			 <a href="/register" class="item">SIGNUP</a>
+			       <% }else{ %>
+						
+          		<div class="right menu">
+					<a href="#" class="ui item" style="color: white;"> Currently Logged in as <%=currentUser.username %></a>
+          			<a  href="/logout" class="ui item">SIGNOUT</a>
+          		</div>
+			      <% } %>
+			</div>
+		
+		</div>
+		<div class="container"> 
+			<% if(error && error.length > 0){ %>
+			
+			<div class="alert alert-danger" role="alert">
+		
+			<%= error %>
+			
+			</div>
+		
+			<% } %>
+			
+			
+			<% if(success && success.length > 0){ %>
+			
+			<div class="alert alert-success" role="alert">
+		
+			<%= success %>
+			
+			</div>
+		
+			<% } %>
+		
+		
+		</div>
+		
+		
